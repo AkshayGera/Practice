@@ -5,26 +5,25 @@ class Node {
     }
 }
 
-class Stack {
+class Queue {
     constructor() {
         this.first = null;
         this.last = null;
         this.size = 0;
     }
-    push(data) {
+    enqueue(data) {
         let newNode = new Node(data);
         if (!this.first) {
             this.first = newNode;
             this.last = newNode;
         }
         else {
-            let temp = this.first;
-            this.first = newNode;
-            this.first.next = temp;
+            this.last.next = newNode;
+            this.last = newNode;
         }
         return ++this.size;
     }
-    pop() {
+    dequeue() {
         if (!this.first) return null;
         let temp = this.first;
         if (this.first === this.last) {
@@ -35,8 +34,4 @@ class Stack {
         return temp.data;
     }
 }
-let stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.pop();
-//insertion and removal constant time
+//insertion and removal constant time - FIFO principles
