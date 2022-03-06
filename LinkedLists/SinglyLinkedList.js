@@ -93,7 +93,7 @@ class SinglyLinkedList {
         return false;
     }
     insert(index, data) {
-        if (index < 0 || index >= this.length) return false;
+        if (index < 0 || index > this.length) return false;
         if (index === this.length) return !!this.push(data);
         if (index === 0) return !!this.unshift(data);
         let previous = this.get(index - 1);
